@@ -12,6 +12,9 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+#The build has 3 seperate tasks run under 1 step
+steps:
+  
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
