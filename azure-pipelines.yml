@@ -14,19 +14,19 @@ variables:
 
 #The build has 3 seperate tasks run under 1 step
 steps:
-  
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
-    projects: '/**/*.csproj'
+    projects: '*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
   inputs:
     command: 'pack'
     arguments: '--configuration $(buildConfiguration)'
-    packagesToPack: '/**/*.csproj'
+    packagesToPack: '*.csproj'
     nobuild: true
     versioningScheme: 'off'
