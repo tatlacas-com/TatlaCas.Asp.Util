@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>TatlaCas.AspCore.Utils</PackageId>
+    <Authors>TatlaCas</Authors>
+    <Copyright>TatlaCas</Copyright>
+    <Owners>TatlaCas</Owners>
+    <Title>Asp.Net Core Utils</Title>
   </PropertyGroup>
 
   <ItemGroup>
