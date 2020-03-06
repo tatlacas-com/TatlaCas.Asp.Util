@@ -9,7 +9,7 @@
     <Owners>TatlaCas</Owners>
     <Title>Asp.Net Core Utils</Title>
     <IsPackable>true</IsPackable>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
