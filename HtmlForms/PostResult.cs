@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace TatlaCas.Asp.Utils.Utils
+namespace TatlaCas.Asp.Utils.HtmlForms
 {
     public class PostResult
     {

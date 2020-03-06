@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace TatlaCas.Asp.Utils.Utils
+namespace TatlaCas.Asp.Utils.HtmlForms
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class HtmlFormDisplayNameAttribute : DisplayNameAttribute

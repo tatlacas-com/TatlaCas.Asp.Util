@@ -1,4 +1,4 @@
-namespace TatlaCas.Asp.Utils.Utils
+namespace TatlaCas.Asp.Utils.HtmlForms
 {
     public interface IResourceOption
     {
