@@ -27,7 +27,7 @@ steps:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
     projects: '*.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: 'off'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
@@ -36,7 +36,7 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     packagesToPack: '*.csproj'
     nobuild: true
-    versioningScheme: byBuildNumber
+    versioningScheme: 'off'
 
 # The last task is a nuget command, nuget push
 # This will push any .nupkg files to the 'TestFeed' artifact feed
@@ -49,4 +49,4 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'TatlaCas NuGet Gallery'
-    versioningScheme: byBuildNumber
+    versioningScheme: 'off'
