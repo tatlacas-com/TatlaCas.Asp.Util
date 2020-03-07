@@ -12,6 +12,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  major: 2
+  minor: 0
 
 steps:
 #- task: gittools.gitversion.gitversion-task.GitVersion@4
@@ -23,7 +25,7 @@ steps:
   displayName: 'dotnet build'
   inputs:
     command: 'build'
-    arguments: '--configuration $(buildConfiguration) /p:Version=$(GitVersion.NuGetVersion)'
+    arguments: '--configuration $(buildConfiguration)'
     projects: '*.csproj'
     versioningScheme: byBuildNumber
 
