@@ -12,20 +12,22 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  major: 2
+  minor: 0
 
 steps:
-- task: gittools.gitversion.gitversion-task.GitVersion@4
-  displayName: GitVersion
-  inputs:
-    preferBundledVersion: false
+#- task: gittools.gitversion.gitversion-task.GitVersion@4
+#  displayName: GitVersion
+#  inputs:
+#    preferBundledVersion: false
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     command: 'build'
-    arguments: '--configuration $(buildConfiguration) /p:Version=$(GitVersion.NuGetVersion)'
+    arguments: '--configuration $(buildConfiguration)'
     projects: '*.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: 'off'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
@@ -34,8 +36,7 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     packagesToPack: '*.csproj'
     nobuild: true
-    versioningScheme: byEnvVar
-    versionEnvVar: GitVersion.NuGetVersion
+    versioningScheme: 'off'
 
 # The last task is a nuget command, nuget push
 # This will push any .nupkg files to the 'TestFeed' artifact feed
@@ -48,4 +49,4 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'TatlaCas NuGet Gallery'
-    versioningScheme: byBuildNumber
+    versioningScheme: 'off'
