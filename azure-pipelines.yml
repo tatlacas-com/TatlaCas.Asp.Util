@@ -11,6 +11,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  major: 2
+  minor: 0
 
 #The build has 3 seperate tasks run under 1 step
 steps:
@@ -28,7 +30,7 @@ steps:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
     projects: '*.csproj'
-
+    versioningScheme: 'off'
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
   inputs:
