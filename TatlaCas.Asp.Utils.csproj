@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageId>TatlaCas.AspCore.Utils</PackageId>
+    <PackageId>TatlaCas.Asp.Core.Utils</PackageId>
     <Authors>TatlaCas</Authors>
     <Copyright>TatlaCas</Copyright>
     <Owners>TatlaCas</Owners>
     <Title>Asp.Net Core Utils</Title>
     <IsPackable>true</IsPackable>
-    <PackageVersion>1.0.5</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@
 
 trigger:
 - master
-- feature/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -13,19 +12,22 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+#The build has 3 seperate tasks run under 1 step
 steps:
-- task: gittools.gitversion.gitversion-task.GitVersion@4
-  displayName: GitVersion
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
   inputs:
-    preferBundledVersion: false
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'TatlaCasFeed'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     command: 'build'
-    arguments: '--configuration $(buildConfiguration) /p:Version=$(GitVersion.NuGetVersion)'
+    arguments: '--configuration $(buildConfiguration)'
     projects: '*.csproj'
-    versioningScheme: byBuildNumber
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
@@ -34,11 +36,11 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     packagesToPack: '*.csproj'
     nobuild: true
-    versioningScheme: byEnvVar
-    versionEnvVar: GitVersion.NuGetVersion
+    versioningScheme: 'off'
 
 # The last task is a nuget command, nuget push
 # This will push any .nupkg files to the 'TestFeed' artifact feed
+# allowPackageConflicts allows us to build the same version and not throw an error when trying to push
 # instead it just ingores the latest package unless the version changes
 - task: NuGetCommand@2
   displayName: 'nuget push'
@@ -46,6 +48,7 @@ steps:
     command: 'push'
     feedsToUse: 'select'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'TatlaCas NuGet Gallery'
-    versioningScheme: byBuildNumber
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'TatlaCasFeed'
+    versioningScheme: 'off'
+    allowPackageConflicts: true
