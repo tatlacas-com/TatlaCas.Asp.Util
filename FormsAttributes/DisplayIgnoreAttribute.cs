@@ -1,7 +1,9 @@
+using System;
+
 namespace TatlaCas.Asp.Utils.FormsAttributes
 {
-    public class DisplayIgnoreAttribute
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public class DisplayIgnoreAttribute : Attribute
     {
-        
     }
 }
