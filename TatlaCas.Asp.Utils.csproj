@@ -8,7 +8,7 @@
     <Owners>TatlaCas</Owners>
     <Title>Asp.Net Core Utils</Title>
     <IsPackable>true</IsPackable>
-    <PackageVersion>2.0.2</PackageVersion>
+    <PackageVersion>2.0.3</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
