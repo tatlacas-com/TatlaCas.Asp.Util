@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel;
 
-namespace TatlaCas.Asp.Utils.HtmlForms
+namespace TatlaCas.Asp.Utils.FormsAttributes
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public sealed class HtmlFormDisplayNameAttribute : DisplayNameAttribute
+    public sealed class FormDisplayNameAttribute : DisplayNameAttribute
     {
         private string _placeholder;
 
@@ -14,7 +14,7 @@ namespace TatlaCas.Asp.Utils.HtmlForms
             private set => _placeholder = value;
         }
 
-        public HtmlFormDisplayNameAttribute(string displayName, string placeholder = null) : base(displayName)
+        public FormDisplayNameAttribute(string displayName, string placeholder = null) : base(displayName)
         {
             Placeholder = placeholder;
         }
