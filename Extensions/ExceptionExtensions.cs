@@ -1,6 +1,6 @@
 using System;
 
-namespace TatlaCas.Asp.Utils.Extensions
+namespace TatlaCas.Asp.Core.Util.Extensions
 {
     public static class ExceptionExtensions
     {

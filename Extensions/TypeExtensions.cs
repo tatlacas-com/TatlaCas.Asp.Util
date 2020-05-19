@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TatlaCas.Asp.Utils.Extensions
+namespace TatlaCas.Asp.Core.Util.Extensions
 {
     public static class TypeExtensions
     {
@@ -30,14 +30,27 @@ namespace TatlaCas.Asp.Utils.Extensions
                 .Select(t => t.AsType());
         }
 
-        public static IEnumerable<Type> CreatableTypesInNs(this Assembly assembly, string ns)
+        public static IEnumerable<Type> CreatableTypesInNs(this Assembly assembly, string ns,
+            bool includeSubDir = false,
+            List<string> exclude = null)
         {
             return assembly
                 .ExceptionSafeGetTypes()
                 .Select(t => t.GetTypeInfo())
                 .Where(t => !t.IsAbstract)
-                .Where(t => t.DeclaredConstructors.Any(c => !c.IsStatic && c.IsPublic) &&
-                            t.AsType().Namespace is string str && str.Equals(ns))
+                .Where(t =>
+                {
+                    var allowedConstructor =
+                        t.DeclaredConstructors.Any(c => !c.IsStatic && c.IsPublic);
+                    var currNs = t.AsType().Namespace;
+                    var fullName = t.AsType().FullName;
+                    var allowedNamespace = includeSubDir
+                        ? currNs?.StartsWith(ns) == true
+                        : currNs?.Equals(ns)== true;
+
+                    var isInExcludes = exclude?.Any(p => fullName?.StartsWith(p)==true) == true;
+                    return allowedConstructor && allowedNamespace && !isInExcludes;
+                })
                 .Select(t => t.AsType());
         }
 

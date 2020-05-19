@@ -1,8 +1,8 @@
 using System;
 
-namespace TatlaCas.Asp.Utils.FormsAttributes
+namespace TatlaCas.Asp.Core.Util.FormsAttributes
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class UniqueAttribute : Attribute
     {
         public UniqueAttribute()

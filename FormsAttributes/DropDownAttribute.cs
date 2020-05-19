@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace TatlaCas.Asp.Utils.FormsAttributes
+namespace TatlaCas.Asp.Core.Util.FormsAttributes
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class DropDownAttribute : Attribute
     {
         public List<object> Options { get; set; }

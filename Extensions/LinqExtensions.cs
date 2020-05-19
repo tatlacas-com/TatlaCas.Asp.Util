@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace TatlaCas.Asp.Utils.Extensions
+namespace TatlaCas.Asp.Core.Util.Extensions
 {
     public static class LinqExtensions
     {
