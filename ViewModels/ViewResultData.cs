@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using TatlaCas.Asp.Core.Util.FormsAttributes;
 using TatlaCas.Asp.Core.Util.Resources;
 
@@ -19,6 +20,9 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
             var properties = resource.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
             foreach (var property in properties)
             {
+                if (property.GetCustomAttribute<JsonIgnoreAttribute>() is {} ||
+                    property.GetCustomAttribute<DisplayIgnoreAttribute>() is {})
+                    continue;
                 var field = new ItemsDisplayColumns();
                 if (property.GetCustomAttribute<EmailAddressAttribute>() != null)
                     field.DataType = FieldTypes.Email;
