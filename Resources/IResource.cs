@@ -8,9 +8,6 @@ namespace TatlaCas.Asp.Core.Util.Resources
         public string UniqueKey { get; set; }
         public string CellViewType { get; set; }
         Dictionary<string, List<IResourceOption>> Options { get; set; }
-        bool AddAnotherAfterSave { get; set; }
-        bool ShowAddAnotherAfterSave { get; set; }
-        bool IgnoreNullFields { get; set; }
         bool IsValid();
     }
 }

@@ -23,13 +23,13 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                 if (property.GetCustomAttribute<JsonIgnoreAttribute>() is {} ||
                     property.GetCustomAttribute<DisplayIgnoreAttribute>() is {})
                     continue;
+                if (property.GetCustomAttribute<HiddenFieldAttribute>() is {} hide && !hide.DisplayShow)
+                    continue;
                 var field = new ItemsDisplayColumns();
                 if (property.GetCustomAttribute<EmailAddressAttribute>() != null)
                     field.DataType = FieldTypes.Email;
                 else if (property.GetCustomAttribute<PhoneAttribute>() != null)
                     field.DataType = FieldTypes.Phone;
-                else if (property.GetCustomAttribute<HiddenFieldAttribute>() != null)
-                    field.DataType = FieldTypes.Hidden;
                 else if (property.PropertyType == typeof(int))
                     field.DataType = FieldTypes.Integer;
                 else if (property.PropertyType == typeof(bool))
