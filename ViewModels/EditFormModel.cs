@@ -122,6 +122,12 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                     }
                     else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
                         field.FieldType = FieldTypes.Integer;
+                    else if (property.PropertyType == typeof(float) || property.PropertyType == typeof(float?))
+                        field.FieldType = FieldTypes.Float;
+                    else if (property.PropertyType == typeof(double) || property.PropertyType == typeof(double?))
+                        field.FieldType = FieldTypes.Double;
+                    else if (property.PropertyType == typeof(decimal) || property.PropertyType == typeof(decimal?))
+                        field.FieldType = FieldTypes.Decimal;
                     else if (property.PropertyType == typeof(bool) || property.PropertyType == typeof(bool?))
                     {
                         field.FieldType = FieldTypes.Checkbox;
@@ -175,6 +181,9 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         Email,
         Phone,
         Integer,
+        Float,
+        Double,
+        Decimal,
         Checkbox,
         RadioButton,
         DropDown,
