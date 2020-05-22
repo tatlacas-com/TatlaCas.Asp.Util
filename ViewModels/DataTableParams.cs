@@ -6,5 +6,6 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         public DataTableMeta Pagination { get; set; }
         public DataTableQuery Query { get; set; }
         public DataTableSort Sort { get; set; }
+        public bool PartialResults { get; set; }
     }
 }
