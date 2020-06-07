@@ -120,6 +120,8 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                         field.FieldType = FieldTypes.DropDown;
                         field.Options = resource.Options[property.Name];
                     }
+                    else if (property.GetCustomAttribute<ImageFileAttribute>() is {})
+                        field.FieldType = FieldTypes.ImageFile;
                     else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
                         field.FieldType = FieldTypes.Integer;
                     else if (property.PropertyType == typeof(float) || property.PropertyType == typeof(float?))
@@ -188,6 +190,7 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         RadioButton,
         DropDown,
         Button,
-        Search
+        Search,
+        ImageFile
     }
 }
