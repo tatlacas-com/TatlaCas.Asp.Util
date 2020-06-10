@@ -120,8 +120,11 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                         field.FieldType = FieldTypes.DropDown;
                         field.Options = resource.Options[property.Name];
                     }
-                    else if (property.GetCustomAttribute<ImageFileAttribute>() is {})
+                    else if (property.GetCustomAttribute<ImageFileAttribute>() is {} imageFileAttribute)
+                    {
                         field.FieldType = FieldTypes.ImageFile;
+                        field.SecondaryField = imageFileAttribute.MimeTypeField;
+                    }
                     else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
                         field.FieldType = FieldTypes.Integer;
                     else if (property.PropertyType == typeof(float) || property.PropertyType == typeof(float?))
@@ -161,6 +164,8 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         public string DisplayName { get; set; }
         public object Value { get; set; }
         public FieldTypes FieldType { get; set; }
+        public string SecondaryField { get; set; }
+        public string SecondaryField2 { get; set; }
 
         public int? MinLength { get; set; }
         public int? MaxLength { get; set; }
