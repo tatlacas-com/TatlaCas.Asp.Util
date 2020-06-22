@@ -123,7 +123,16 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                     else if (property.GetCustomAttribute<ImageFileAttribute>() is {} imageFileAttribute)
                     {
                         field.FieldType = FieldTypes.ImageFile;
-                        field.SecondaryField = imageFileAttribute.MimeTypeField;
+                        field.FileField = new FileProps
+                        {
+                            MimeTypeField = imageFileAttribute.MimeTypeField,
+                            UploadEndpoint = imageFileAttribute.UploadEndpoint,
+                            AllowedMimeTypes = imageFileAttribute.AllowedMimeTypes,
+                            FieldName = field.Name,
+                            MaxFileSizeKb = imageFileAttribute.MaxFileSizeKb,
+                            MaxNumberOfFiles = imageFileAttribute.MaxFiles,
+                            MinNumberOfFiles = imageFileAttribute.MinNumberOfFiles
+                        };
                     }
                     else if (property.PropertyType == typeof(int) || property.PropertyType == typeof(int?))
                         field.FieldType = FieldTypes.Integer;
@@ -164,8 +173,7 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         public string DisplayName { get; set; }
         public object Value { get; set; }
         public FieldTypes FieldType { get; set; }
-        public string SecondaryField { get; set; }
-        public string SecondaryField2 { get; set; }
+        public FileProps FileField { get; set; }
 
         public int? MinLength { get; set; }
         public int? MaxLength { get; set; }
@@ -197,5 +205,17 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         Button,
         Search,
         ImageFile
+    }
+
+    public class FileProps
+    {
+        public string MimeTypeField { get; set; }
+        public string FieldName { get; set; }
+        public string UploadEndpoint { get; set; }
+        public string[] AllowedMimeTypes { get; set; }
+        public int MaxFileSizeKb { get; set; }
+        public int MaxNumberOfFiles { get; set; }
+        public int MinNumberOfFiles { get; set; }
+
     }
 }
