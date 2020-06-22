@@ -37,7 +37,9 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
 
         public static IResource GenerateForm<TResource>(TResource res) where TResource : IResource
         {
-            throw new System.NotImplementedException();
+            var form = new EditFormModel();
+            form.Process(res);
+            return form;
         }
     }
 
@@ -216,6 +218,5 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         public int MaxFileSizeKb { get; set; }
         public int MaxNumberOfFiles { get; set; }
         public int MinNumberOfFiles { get; set; }
-
     }
 }
