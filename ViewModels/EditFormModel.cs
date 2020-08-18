@@ -84,7 +84,19 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
         public void Process(IResource resource)
         {
             Fields = new List<FieldResource>();
-            var properties = resource.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            var typ = resource.GetType();
+            if (typ.GetCustomAttribute<DescriptionAttribute>() is {} descr)
+            {
+                var field = new FieldResource
+                {
+                    FieldType = FieldTypes.Text,
+                    Name = "ResourceFormTitle",
+                    Hidden = true,
+                    Value = descr.Description
+                };
+                Fields.Add(field);
+            }
+            var properties = typ.GetProperties(BindingFlags.Instance | BindingFlags.Public);
             foreach (var property in properties)
             {
                 if (property.GetGetMethod() == null) continue;
