@@ -132,7 +132,8 @@ namespace TatlaCas.Asp.Core.Util.ViewModels
                     if (property.GetCustomAttribute<DropDownAttribute>() != null)
                     {
                         field.FieldType = FieldTypes.DropDown;
-                        field.Options = resource.Options[property.Name];
+                        //todo If  fieldType is actually in use, provide options
+                        // field.Options = resource.Options[property.Name];
                     }
                     else if (property.GetCustomAttribute<ImageFileAttribute>() is {} imageFileAttribute)
                     {
