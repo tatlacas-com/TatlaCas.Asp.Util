@@ -1,40 +1,48 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using TatlaCas.Asp.Core.Util.ViewModels;
 
 namespace TatlaCas.Asp.Core.Util.Extensions
 {
     public static class LinqExtensions
     {
-        public static IOrderedQueryable<T> OrderBy<T>(
+        public static IQueryable<T> OrderBy<T>(
             this IQueryable<T> source,
-            string property)
+            List<DataTableSort> sort)
         {
-            return ApplyOrder<T>(source, property, "OrderBy");
+            if (!(sort?.Count > 0)) return source;
+            var result = source.OrderBy(sort[0].Field,sort[0].Sort);
+            if (sort.Count <= 1) return result;
+            for (var i = 1; i < sort.Count; i++)
+            {
+                result = result.ThenBy(sort[0].Field, sort[0].Sort);
+            }
+            return result;
         }
 
-        public static IOrderedQueryable<T> OrderByDescending<T>(
+        public static IOrderedQueryable<T> OrderBy<T>(
             this IQueryable<T> source,
-            string property)
+            string property,string order = "ASC")
         {
-            return ApplyOrder<T>(source, property, "OrderByDescending");
+
+            var dir = "OrderBy";
+            if ("desc".Equals(order?.ToLower()))
+                dir = "OrderByDescending";
+            return ApplyOrder<T>(source, property, dir);
         }
 
         public static IOrderedQueryable<T> ThenBy<T>(
             this IOrderedQueryable<T> source,
-            string property)
+            string property,string order = "ASC")
         {
-            return ApplyOrder<T>(source, property, "ThenBy");
+            var dir = "ThenBy";
+            if ("desc".Equals(order?.ToLower()))
+                dir = "ThenByDescending";
+            return ApplyOrder<T>(source, property, dir);
         }
-
-        public static IOrderedQueryable<T> ThenByDescending<T>(
-            this IOrderedQueryable<T> source,
-            string property)
-        {
-            return ApplyOrder<T>(source, property, "ThenByDescending");
-        }
-
         static IOrderedQueryable<T> ApplyOrder<T>(
             IQueryable<T> source,
             string property,
