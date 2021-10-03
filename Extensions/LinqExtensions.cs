@@ -14,9 +14,7 @@ namespace TatlaCas.Asp.Core.Util.Extensions
             List<DataTableSort> sort)
         {
             if (!(sort?.Count > 0))
-            {
                 return source.OrderBy("CreatedAt", "desc");
-            }
 
             var result = source.OrderBy(sort[0].Field, sort[0].Sort);
             if (sort.Count <= 1) return result;
