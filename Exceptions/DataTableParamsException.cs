@@ -1,11 +1,10 @@
 using System;
 
-namespace TatlaCas.Asp.Core.Util.Exceptions
+namespace TatlaCas.Asp.Core.Util.Exceptions;
+
+public class DataTableParamsException: ArgumentException
 {
-    public class DataTableParamsException: ArgumentException
+    public DataTableParamsException(string message):base(message)
     {
-        public DataTableParamsException(string message):base(message)
-        {
-        }
     }
 }

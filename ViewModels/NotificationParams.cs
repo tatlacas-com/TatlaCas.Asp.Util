@@ -1,12 +1,11 @@
-﻿namespace TatlaCas.Asp.Core.Util.ViewModels
+﻿namespace TatlaCas.Asp.Core.Util.ViewModels;
+
+public class NotificationParams
 {
-    public class NotificationParams
-    {
-        public string Param3 { get; set; }
-        public string Param1 { get; set; }
-        public string Param2 { get; set; }
-        public string Param4 { get; set; }
-        public string Param5 { get; set; }
-        public string Param6 { get; set; }
-    }
+    public string Param3 { get; set; }
+    public string Param1 { get; set; }
+    public string Param2 { get; set; }
+    public string Param4 { get; set; }
+    public string Param5 { get; set; }
+    public string Param6 { get; set; }
 }

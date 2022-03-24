@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace TatlaCas.Asp.Core.Util.FormsAttributes
+namespace TatlaCas.Asp.Core.Util.FormsAttributes;
+
+[AttributeUsage(AttributeTargets.Property)]
+public sealed class DropDownAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Property)]
-    public sealed class DropDownAttribute : Attribute
-    {
-        public List<object> Options { get; set; }
-    }
+    public List<object> Options { get; set; }
 }

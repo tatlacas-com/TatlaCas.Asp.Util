@@ -1,9 +1,8 @@
 using System;
 
-namespace TatlaCas.Asp.Core.Util.FormsAttributes
+namespace TatlaCas.Asp.Core.Util.FormsAttributes;
+
+[AttributeUsage(AttributeTargets.Property)]
+public class DisplayIgnoreAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Property)]
-    public class DisplayIgnoreAttribute : Attribute
-    {
-    }
 }

@@ -1,10 +1,9 @@
-namespace TatlaCas.Asp.Core.Util.ViewModels
+namespace TatlaCas.Asp.Core.Util.ViewModels;
+
+public class ItemsDisplayColumns
 {
-    public class ItemsDisplayColumns
-    {
-        public string UniqueKey { get; set; }
-        public string ColumnId { get; set; }
-        public string Title { get; set; }
-        public FieldTypes DataType { get; set; }
-    }
+    public string UniqueKey { get; set; }
+    public string ColumnId { get; set; }
+    public string Title { get; set; }
+    public FieldTypes DataType { get; set; }
 }

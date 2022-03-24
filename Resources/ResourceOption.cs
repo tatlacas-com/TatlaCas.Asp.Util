@@ -1,15 +1,14 @@
-namespace TatlaCas.Asp.Core.Util.Resources
+namespace TatlaCas.Asp.Core.Util.Resources;
+
+public class ResourceOption : IResourceOption
 {
-    public class ResourceOption : IResourceOption
+    public ResourceOption(string fieldId, string fullName)
     {
-        public ResourceOption(string fieldId, string fullName)
-        {
-            FieldId = fieldId;
-            DisplayValue = fullName;
-        }
-
-        public string FieldId { get; }
-
-        public string DisplayValue { get; }
+        FieldId = fieldId;
+        DisplayValue = fullName;
     }
+
+    public string FieldId { get; }
+
+    public string DisplayValue { get; }
 }

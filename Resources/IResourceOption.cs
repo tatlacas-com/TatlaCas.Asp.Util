@@ -1,8 +1,7 @@
-namespace TatlaCas.Asp.Core.Util.Resources
+namespace TatlaCas.Asp.Core.Util.Resources;
+
+public interface IResourceOption
 {
-    public interface IResourceOption
-    {
-        string FieldId { get;  }
-        string DisplayValue { get;  }
-    }
+    string FieldId { get;  }
+    string DisplayValue { get;  }
 }

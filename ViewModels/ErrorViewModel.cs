@@ -1,9 +1,8 @@
-namespace TatlaCas.Asp.Core.Util.ViewModels
-{
-    public class ErrorViewModel
-    {
-        public string RequestId { get; set; }
+namespace TatlaCas.Asp.Core.Util.ViewModels;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+public class ErrorViewModel
+{
+    public string RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }

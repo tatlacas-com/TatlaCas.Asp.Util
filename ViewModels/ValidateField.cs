@@ -1,8 +1,7 @@
-namespace TatlaCas.Asp.Core.Util.ViewModels
+namespace TatlaCas.Asp.Core.Util.ViewModels;
+
+public class ValidateField
 {
-    public class ValidateField
-    {
-        public string Value { get; set; }
-        public string FormKey { get; set; }
-    }
+    public string Value { get; set; }
+    public string FormKey { get; set; }
 }

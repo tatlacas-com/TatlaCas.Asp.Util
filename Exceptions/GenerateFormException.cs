@@ -1,12 +1,11 @@
 using System;
 
-namespace TatlaCas.Asp.Core.Util.Exceptions
+namespace TatlaCas.Asp.Core.Util.Exceptions;
+
+public class GenerateFormException: ArgumentException
 {
-    public class GenerateFormException: ArgumentException
+    public GenerateFormException(string message):base(message)
     {
-        public GenerateFormException(string message):base(message)
-        {
             
-        }
     }
 }

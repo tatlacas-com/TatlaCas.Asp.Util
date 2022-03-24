@@ -1,9 +1,8 @@
 using System;
 
-namespace TatlaCas.Asp.Core.Util.Exceptions
+namespace TatlaCas.Asp.Core.Util.Exceptions;
+
+public class ConflictException: Exception
 {
-    public class ConflictException: Exception
-    {
         
-    }
 }
