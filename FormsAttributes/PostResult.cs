@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace TatlaCas.Asp.Core.Util.FormsAttributes;
+namespace TatlaCas.Asp.Util.FormsAttributes;
 
 public class PostResult
 {

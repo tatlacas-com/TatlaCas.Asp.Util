@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using TatlaCas.Asp.Core.Util.FormsAttributes;
-using TatlaCas.Asp.Core.Util.Resources;
+using TatlaCas.Asp.Util.FormsAttributes;
+using TatlaCas.Asp.Util.Resources;
 
-namespace TatlaCas.Asp.Core.Util.ViewModels;
+namespace TatlaCas.Asp.Util.ViewModels;
 
 public class DisplayFormModel : IResource
 {

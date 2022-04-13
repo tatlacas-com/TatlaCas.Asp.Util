@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using TatlaCas.Asp.Core.Util.ViewModels;
+using TatlaCas.Asp.Util.ViewModels;
 
-namespace TatlaCas.Asp.Core.Util.Extensions;
+namespace TatlaCas.Asp.Util.Extensions;
 
 public static class LinqExtensions
 {

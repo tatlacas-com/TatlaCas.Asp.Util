@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TatlaCas.Asp.Core.Util.Extensions;
+namespace TatlaCas.Asp.Util.Extensions;
 
 public static class TypeExtensions
 {

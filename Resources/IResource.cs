@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TatlaCas.Asp.Core.Util.Resources;
+namespace TatlaCas.Asp.Util.Resources;
 
 public interface IResource
 {

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace TatlaCas.Asp.Core.Util.FormsAttributes;
+namespace TatlaCas.Asp.Util.FormsAttributes;
 
 [AttributeUsage(AttributeTargets.Property)]
 public sealed class FormDisplayNameAttribute : DisplayNameAttribute

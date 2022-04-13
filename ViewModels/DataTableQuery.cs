@@ -1,7 +1,7 @@
 
 using System.Text.Json;
 
-namespace TatlaCas.Asp.Core.Util.ViewModels;
+namespace TatlaCas.Asp.Util.ViewModels;
 
 public class DataTableQuery
 {

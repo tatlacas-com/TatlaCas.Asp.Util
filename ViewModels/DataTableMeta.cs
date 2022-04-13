@@ -1,5 +1,5 @@
 
-namespace TatlaCas.Asp.Core.Util.ViewModels;
+namespace TatlaCas.Asp.Util.ViewModels;
 
 /// <summary>
 /// Meta object should contain the metadata that required for the datatable pagination to work.

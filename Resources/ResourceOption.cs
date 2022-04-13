@@ -1,4 +1,4 @@
-namespace TatlaCas.Asp.Core.Util.Resources;
+namespace TatlaCas.Asp.Util.Resources;
 
 public class ResourceOption : IResourceOption
 {

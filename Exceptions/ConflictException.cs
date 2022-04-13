@@ -1,6 +1,6 @@
 using System;
 
-namespace TatlaCas.Asp.Core.Util.Exceptions;
+namespace TatlaCas.Asp.Util.Exceptions;
 
 public class ConflictException: Exception
 {
