@@ -30,8 +30,17 @@ jobs:
         source-url: https://nuget.pkg.github.com/tatlacas-com/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build ../../../TatlaCas.Asp.Util.csproj
+    
+    
+    - run: echo ${GITHUB_WORKSPACE}
+    - name: Install dependencies
+      run: dotnet restore
+    
+    - name: Build Release
+      run: dotnet build --configuration Release --no-restore
+    
     - name: Create the package
-      run: dotnet pack --configuration Release <my project>
+      run: dotnet pack --configuration Release
+      
     - name: Publish the package to GPR
-      run: dotnet nuget push ../../../bin/Release/*.nupkg
+      run: dotnet nuget push ../../bin/Release/*.nupkg
