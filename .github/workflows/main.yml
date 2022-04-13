@@ -40,5 +40,8 @@ jobs:
     - name: Create the package
       run: dotnet pack --configuration Release
       
+    - name: Add GPR Source
+      run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/tatlacas-com/index.json -Username tatlacas -Password ${{ secrets.GITHUB_TOKEN }}
+      
     - name: Publish the package to GPR
       run: dotnet nuget push bin/Release/*.nupkg
