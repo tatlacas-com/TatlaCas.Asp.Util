@@ -30,7 +30,9 @@ jobs:
         source-url: https://nuget.pkg.github.com/tatlacas-com/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        
+    
+    
+    - run: echo "about to build"
     - name: Install dependencies
       run: dotnet restore
     
