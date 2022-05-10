@@ -1,4 +1,6 @@
 
+using System;
+
 namespace TatlaCas.Asp.Util.ViewModels;
 
 /// <summary>
@@ -17,10 +19,12 @@ public class DataTableMeta
     /// <summary>
     /// Total records per page.
     /// </summary>
-    public int Perpage { get; set; }
+    public int PerPage { get; set; }
     /// <summary>
     /// Total all records number available in the server
     /// </summary>
     public int Total { get; set; }
+
+    public DateTime? OffsetDateTime { get; set; }
        
 }
