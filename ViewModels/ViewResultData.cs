@@ -8,10 +8,10 @@ using TatlaCas.Asp.Util.Resources;
 
 namespace TatlaCas.Asp.Util.ViewModels;
 
-public class ViewResultData
+public class ViewResultData<T>
 {
     public int Total { get; set; }
-    public object Data { get; set; }
+    public T Data { get; set; }
     public List<ItemsDisplayColumns> Columns { get; set; }
 
     public void ProcessDisplayColumns<TResource>(TResource resource) where TResource : IResource, new()
