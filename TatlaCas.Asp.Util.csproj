@@ -7,7 +7,7 @@
     <Owners>TatlaCas</Owners>
     <Title>Asp.Net Core Utils</Title>
     <IsPackable>true</IsPackable>
-    <PackageVersion>2.0.5</PackageVersion>
+    <PackageVersion>2.0.6</PackageVersion>
     <TargetFramework>net6.0</TargetFramework>
     <RepositoryUrl>https://github.com/tatlacas-com/TatlaCas.Asp.Util.git</RepositoryUrl>
   </PropertyGroup>
