@@ -26,6 +26,6 @@ public class DataTableMeta
     public int Total { get; set; }
 
     public DateTime? OffsetDateTime { get; set; }
-    public object OffsetId { get; set; }
+    public object OffsetRef { get; set; }
        
 }
